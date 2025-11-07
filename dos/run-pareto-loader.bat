@@ -7,18 +7,17 @@ REM For license details, see the LICENSE file in this project root.
 REM ---------------------------------------------------------------------------
 
 REM ---------------------------------------------------------------------------
-ECHO Beginning Pareto Factory Generator
+ECHO Beginning Pareto Factory Data Loader
 REM ---------------------------------------------------------------------------
 
-SET PARETO_API_USERNAME=%PARETO_USERNAME%
-SET PARETO_API_PASSWORD=%PARETO_PASSWORD%
+SET PARETO_API_USERNAME=%NORPAC_TENANT_USERNAME%
+SET PARETO_API_PASSWORD=%NORPAC_TENANT_PASSWORD%
 SET PARETO_API_URL=%PARETO_FACTORY_URL%
-SET PARETO_TENANT_UUID=%PARETO_TENANT_UUID%
+SET PARETO_API_VERSION=%PARETO_API_VERSION%
 
-SET SOURCE_ROOT_DIR=%PARETO_ROOT_DIR%\pareto-factory-api
-SET PARETO_BUILD_FILE=%SOURCE_ROOT_DIR%\src\main\resources\ParetoBuild.csv
+SET IMPORT_DATA_DIRECTORY=%PARETO_ROOT_DIR%\pareto-factory-data
 
-java -jar %PARETO_TOOL_DIR%\pareto-builder.jar
+java -jar %PARETO_TOOL_DIR%\pareto-loader.jar
 
-ECHO Completed Pareto Factory Generator
+ECHO Completed Pareto Factory Data Loader
 ENDLOCAL
