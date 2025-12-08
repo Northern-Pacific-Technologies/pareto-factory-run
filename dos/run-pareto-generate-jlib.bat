@@ -7,26 +7,22 @@ REM For license details, see the LICENSE file in this project root.
 REM ---------------------------------------------------------------------------
 
 REM ---------------------------------------------------------------------------
-ECHO Beginning Pareto Importer Build
+ECHO Beginning Pareto Factory Java Library Generator
 REM ---------------------------------------------------------------------------
 
-CD %PARETO_ROOT_DIR%\pareto-factory-imp
-CALL mvn clean install package -DskipTests
+SET PARETO_API_USERNAME=%NORPAC_TENANT_USERNAME%
+SET PARETO_API_PASSWORD=%NORPAC_TENANT_PASSWORD%
+SET PARETO_API_URL=%PARETO_FACTORY_URL%
+SET PARETO_TENANT_UUID=%PARETO_TENANT_UUID%
 
 REM ---------------------------------------------------------------------------
-ECHO Beginning Pareto Importer Distro into %PARETO_TOOL_DIR%
+ECHO Generate the database DDL
 REM ---------------------------------------------------------------------------
 
-COPY /Y target\pareto-factory-imp*.jar "%PARETO_TOOL_DIR%"
-DEL /Q "%PARETO_TOOL_DIR%\*shaded.jar"
-DEL /Q "%PARETO_TOOL_DIR%\pareto-importer.jar"
-pushd "%PARETO_TOOL_DIR%"
-for %%F in (pareto-factory-imp*.jar) do (
-    RENAME "%%F" "pareto-importer.jar"
-)
-popd
+SET SOURCE_ROOT_DIR=%NORPAC_PARETO_ROOT_DIR%\pareto-factory-pareto
+SET PARETO_BUILD_FILE=%SOURCE_ROOT_DIR%\ParetoBuild.csv
 
-CD %PARETO_ROOT_DIR%\pareto-factory-run\dos
+java -jar %PARETO_TOOL_DIR%\pareto-builder.jar
 
-ECHO Completed Pareto Importer Distro into %PARETO_TOOL_DIR%
+ECHO Beginning Pareto Factory Java Library Generator
 ENDLOCAL
