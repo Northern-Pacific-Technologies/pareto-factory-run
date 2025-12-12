@@ -7,7 +7,7 @@ REM For license details, see the LICENSE file in this project root.
 REM ---------------------------------------------------------------------------
 
 REM ---------------------------------------------------------------------------
-ECHO Beginning Pareto Factory Java Library Generator
+ECHO Beginning Pareto Factory Database Generator
 REM ---------------------------------------------------------------------------
 
 SET NORPAC_API_USERNAME=%NORPAC_TENANT_USERNAME%
@@ -21,10 +21,10 @@ SET PLATFORM_API_URL=%PLATFORM_API_URL%
 SET PLATFORM_API_VER=%PLATFORM_API_VER%
 SET PLATFORM_IMP_DIR=NOTUSED
 
-SET SOURCE_ROOT_DIR=%NORPAC_PARETO_ROOT_DIR%\pareto-factory-pareto
+SET SOURCE_ROOT_DIR=%NORPAC_PARETO_ROOT_DIR%\pareto-factory-db
 SET PARETO_BUILD_FILE=%SOURCE_ROOT_DIR%\ParetoBuild.csv
 
 java -jar %PARETO_TOOL_DIR%\pareto-builder.jar
 
-ECHO Beginning Pareto Factory Java Library Generator
+ECHO Completed Pareto Factory Database Generator
 ENDLOCAL
