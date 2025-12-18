@@ -20,11 +20,11 @@ REM ---------------------------------------------------------------------------
 COPY /Y target\pareto-factory-builder*.jar "%PARETO_TOOL_DIR%"
 DEL /Q "%PARETO_TOOL_DIR%\*shaded.jar"
 DEL /Q "%PARETO_TOOL_DIR%\pareto-builder.jar"
-pushd "%PARETO_TOOL_DIR%"
-for %%F in (pareto-factory-build*.jar) do (
+PUSHD "%PARETO_TOOL_DIR%"
+FOR %%F in (pareto-factory-build*.jar) DO (
     RENAME "%%F" "pareto-builder.jar"
 )
-popd
+POPD
 
 CD %PARETO_ROOT_DIR%\pareto-factory-run\dos
 

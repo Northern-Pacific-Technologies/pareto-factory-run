@@ -24,6 +24,15 @@ SET PLATFORM_IMP_DIR=NOTUSED
 SET SOURCE_ROOT_DIR=%NORPAC_PARETO_ROOT_DIR%\pareto-factory-db
 SET PARETO_BUILD_FILE=%SOURCE_ROOT_DIR%\ParetoBuild.csv
 
+REM Remove previously generated files
+DEL /q %SOURCE_ROOT_DIR%\Scripts\ddl\active\*.*
+DEL /q %SOURCE_ROOT_DIR%\Scripts\ddl\delete\*.*
+DEL /q %SOURCE_ROOT_DIR%\Scripts\ddl\insert\*.*
+DEL /q %SOURCE_ROOT_DIR%\Scripts\ddl\table\*.*
+DEL /q %SOURCE_ROOT_DIR%\Scripts\ddl\update\*.*
+DEL /q %SOURCE_ROOT_DIR%\Scripts\ddl\validation\*.*
+
+REM Generate new files
 java -jar %PARETO_TOOL_DIR%\pareto-builder.jar
 
 ECHO Completed Pareto Factory Database Generator

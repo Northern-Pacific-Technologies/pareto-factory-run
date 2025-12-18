@@ -10,21 +10,21 @@ REM ---------------------------------------------------------------------------
 ECHO Beginning Pareto Importer Build
 REM ---------------------------------------------------------------------------
 
-CD %PARETO_ROOT_DIR%\pareto-factory-imp
+CD %NORPAC_PARETO_ROOT_DIR%\pareto-factory-importer
 CALL mvn clean install package -DskipTests
 
 REM ---------------------------------------------------------------------------
 ECHO Beginning Pareto Importer Distro into %PARETO_TOOL_DIR%
 REM ---------------------------------------------------------------------------
 
-COPY /Y target\pareto-factory-imp*.jar "%PARETO_TOOL_DIR%"
+COPY /Y target\pareto-factory-importer*.jar "%PARETO_TOOL_DIR%"
 DEL /Q "%PARETO_TOOL_DIR%\*shaded.jar"
-DEL /Q "%PARETO_TOOL_DIR%\pareto-importer.jar"
-pushd "%PARETO_TOOL_DIR%"
-for %%F in (pareto-factory-imp*.jar) do (
+DEL /Q "%PARETO_TOOL_DIR%\pareto-importer*.jar"
+PUSHD "%PARETO_TOOL_DIR%"
+FOR %%F in (pareto-factory-importer*.jar) DO (
     RENAME "%%F" "pareto-importer.jar"
 )
-popd
+POPD
 
 CD %PARETO_ROOT_DIR%\pareto-factory-run\dos
 
