@@ -10,11 +10,11 @@ REM ---------------------------------------------------------------------------
 ECHO Beginning Pareto Factory Java Library Generator
 REM ---------------------------------------------------------------------------
 
-SET NORPAC_API_USERNAME=%NORPAC_TENANT_USERNAME%
-SET NORPAC_API_PASSWORD=%NORPAC_TENANT_PASSWORD%
+SET NORPAC_API_USERNAME=%NORPAC_API_USERNAME%
+SET NORPAC_API_PASSWORD=%NORPAC_API_PASSWORD%
 
-SET PARETO_API_URL=%PARETO_FACTORY_URL%
-SET PARETO_API_VER=%PARETO_API_VERSION%
+SET PARETO_API_URL=%PARETO_API_URL%
+SET PARETO_API_VER=%PARETO_API_VER%
 SET PARETO_IMP_DIR=NOTUSED
 
 SET PLATFORM_API_URL=%PLATFORM_API_URL%
@@ -35,7 +35,7 @@ java -jar %PARETO_TOOL_DIR%\pareto-builder.jar
 
 REM Build and deploy the jlib
 CD %SOURCE_ROOT_DIR%
-mvn clean deploy -DskipTests
+REM mvn clean deploy -DskipTests
 
 ECHO Beginning Pareto Factory Java Library Generator
 ENDLOCAL
